@@ -32,21 +32,6 @@ services:
     restart: unless-stopped
     depends_on:
       - db
-  
-  keycloak:
-    image: quay.io/keycloak/keycloak:23.0.3
-    container_name: concert_keycloak
-    command: start-dev
-    environment:
-      - KEYCLOAK_ADMIN=admin
-      - KEYCLOAK_ADMIN_PASSWORD=admin
-    ports:
-      - "8081:8080"
-    networks:
-      - database_network
-    depends_on:
-      - db
-    restart: unless-stopped
 
 networks:
   database_network:
